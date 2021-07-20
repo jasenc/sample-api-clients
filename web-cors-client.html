@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+
+  <script>
+    "use strict";
+    function submitForm(inputvalue) {
+      var xhr = new XMLHttpRequest();
+      xhr.onload = function () { alert(xhr.responseText); }
+      xhr.open(inputvalue.method, inputvalue.getAttribute("action"));
+      xhr.send(new FormData(inputvalue));
+      return false;
+    }
+  </script>
+</head>
+
+<body>
+  <form onsubmit="return submitForm(this);"
+    method="GET" 
+    action="https://xxxx.execute-api.ap-southeast-2.amazonaws.com/" >
+    <input type="text" value="somevalue" name="name" />
+    <input type="submit" value="Update" />
+  </form>
+</body>
+
+</html>
